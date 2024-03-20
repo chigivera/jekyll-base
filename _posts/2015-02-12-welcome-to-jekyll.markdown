@@ -1,25 +1,58 @@
 ---
-layout: post
-title:  "Welcome to Jekyll!"
-date:   2015-02-12 13:46:40
-categories: jekyll update
+layout: default
+title: Linear Regression Documentation
 ---
-You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
 
-To add new posts, simply add a file in the `_posts` directory that follows the convention `YYYY-MM-DD-name-of-post.ext` and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.
+# Linear Regression Documentation
 
-Jekyll also offers powerful support for code snippets:
+## Introduction
 
-{% highlight ruby %}
-def print_hi(name)
-  puts "Hi, #{name}"
-end
-print_hi('Tom')
-#=> prints 'Hi, Tom' to STDOUT.
-{% endhighlight %}
+Linear regression is a fundamental statistical technique used to model the relationship between a dependent variable and one or more independent variables. In this document, we'll discuss the basics of linear regression, its assumptions, implementation, and interpretation.
 
-Check out the [Jekyll docs][jekyll] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll’s dedicated Help repository][jekyll-help].
+## Understanding Linear Regression
 
-[jekyll]:      http://jekyllrb.com
-[jekyll-gh]:   https://github.com/jekyll/jekyll
-[jekyll-help]: https://github.com/jekyll/jekyll-help
+### What is Linear Regression?
+
+Linear regression aims to find the best-fitting linear relationship between the independent variable(s) and the dependent variable. The equation of a simple linear regression model is:
+
+$$
+Y = \beta_0 + \beta_1X + \epsilon
+$$
+
+where:
+- \(Y\) is the dependent variable.
+- \(X\) is the independent variable.
+- \(\beta_0\) is the intercept.
+- \(\beta_1\) is the slope.
+- \(\epsilon\) is the error term.
+
+### Assumptions of Linear Regression
+
+Linear regression relies on several assumptions:
+1. Linearity: The relationship between the independent and dependent variables is linear.
+2. Independence: The residuals (errors) are independent of each other.
+3. Homoscedasticity: The variance of the residuals is constant across all levels of the independent variables.
+4. Normality: The residuals follow a normal distribution.
+
+## Implementation
+
+### Simple Linear Regression
+
+```python
+# Python code example for simple linear regression
+import numpy as np
+from sklearn.linear_model import LinearRegression
+
+# Sample data
+X = np.array([1, 2, 3, 4, 5]).reshape(-1, 1)
+y = np.array([2, 3, 4, 5, 6])
+
+# Create a linear regression model
+model = LinearRegression()
+
+# Fit the model
+model.fit(X, y)
+
+# Print the coefficients
+print('Intercept:', model.intercept_)
+print('Slope:', model.coef_)
